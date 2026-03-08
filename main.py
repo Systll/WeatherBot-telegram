@@ -5,7 +5,7 @@ import asyncio
 import logging
 
 
-with open('bot_token.txt', 'r') as file:
+with open('data/bot_token.txt', 'r') as file:
     token = file.read().strip()
 
 logging.basicConfig(level=logging.INFO)
@@ -21,7 +21,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-    
-    
-
-    
