@@ -3,24 +3,17 @@ from aiogram.filters.command import Command
 import requests
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-import random
 
 
 router = Router()
-with open('cat_api.txt', 'r') as file:
-    api = file.read().strip()
-    print(api)
-    
 
-slovar = ['тута','здеся','прямо тутка', 'Чуть чуть левее тута', 'чуть чуть правее тута', 'около здеся','вот прям тут', 'здесь', 'тут', 'в данном месте']
 
 
 @router.message(F.location)
 async def get_loc(message: types.Message):
     lat = message.location.latitude
     lon = message.location.longitude
-    randomize = int(random.uniform(0, 10))
-    await message.answer(f'температура {slovar[randomize]} на данный момент составляет:\n{get_temp(lat,lon)}°C\n{get_weather(lat,lon)}')
+    await message.answer(f'температура здесь на данный момент составляет:\n{get_temp(lat,lon)}°C\n{get_weather(lat,lon)}')
 
 
 @router.callback_query(F.data == 'about_project')
@@ -54,7 +47,3 @@ def get_weather(lat,lon):
     else:
         return ''
 
-
-
-
-    
