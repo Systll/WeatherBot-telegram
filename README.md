@@ -32,5 +32,5 @@
 ### 2. Клонирование и установка зависимостей
 ```bash
 git clone https://github.com
-cd weather-geo-bot
+cd WeatherBot-telegram
 pip install -r requirements.txt
